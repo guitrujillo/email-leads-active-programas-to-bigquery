@@ -2,6 +2,13 @@
 REM ========================================================================
 REM Script de execucao mensal - ActiveCampaign para BigQuery
 REM ========================================================================
+REM
+REM IMPORTANTE: Copie este arquivo para "executar.bat" e configure sua API key
+REM
+REM   1. Copie: copy executar.bat.example executar.bat
+REM   2. Edite executar.bat e substitua SUA_API_KEY_AQUI pela sua chave real
+REM
+REM ========================================================================
 
 echo ========================================================================
 echo           EXTRACAO ACTIVECAMPAIGN - BIGQUERY
@@ -9,7 +16,8 @@ echo ========================================================================
 echo.
 
 REM Configura a API Key do ActiveCampaign
-set ACTIVECAMPAIGN_API_KEY=ad04a29e4796290f2c213154503902af8544cbc408b13d14616c6149941db727dc258294
+REM SUBSTITUA "SUA_API_KEY_AQUI" pela sua API key real do ActiveCampaign
+set ACTIVECAMPAIGN_API_KEY=SUA_API_KEY_AQUI
 
 REM Executa o script principal
 echo Iniciando extracao de dados...

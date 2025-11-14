@@ -46,6 +46,9 @@ client_secret*.json
 *.env
 .env
 
+# API Keys and secrets
+executar.bat
+
 # Logs
 *.log
 logs/
