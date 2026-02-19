@@ -1,13 +1,18 @@
+import os
 import pandas as pd
 from google.cloud import bigquery
 from google.cloud.exceptions import NotFound
 import sys
 
 # Configurações
-excel_file = r"C:\Users\Guilherme Trujillo\Desktop\Assinaturas - Retroativo\assinaturas.xlsx"
-project_id = "projetos-icl"
-dataset_id = "hotmart"
-table_id = "assinaturas"
+excel_file = os.getenv("EXCEL_FILE_PATH")
+if not excel_file:
+    raise ValueError("EXCEL_FILE_PATH não definida. Defina a variável de ambiente com o caminho do arquivo Excel.")
+project_id = os.getenv("BIGQUERY_PROJECT_ID")
+if not project_id:
+    raise ValueError("BIGQUERY_PROJECT_ID não definida no ambiente.")
+dataset_id = os.getenv("BIGQUERY_DATASET_ID", "hotmart")
+table_id = os.getenv("BIGQUERY_TABLE_ID", "assinaturas")
 full_table_id = f"{project_id}.{dataset_id}.{table_id}"
 
 def main():

@@ -55,9 +55,12 @@ TAG_URLS = {
 # CONFIGURAÇÕES DO BIGQUERY (NÃO ALTERAR)
 # =============================================================================
 
-PROJECT_ID = "projetos-icl"
-DATASET_ID = "active_leads"
-TABLE_ID = "emails_inscritos"
+import os as _os
+PROJECT_ID = _os.getenv("BIGQUERY_PROJECT_ID")
+if not PROJECT_ID:
+    raise ValueError("BIGQUERY_PROJECT_ID não definida no ambiente.")
+DATASET_ID = _os.getenv("BIGQUERY_DATASET_ID", "active_leads")
+TABLE_ID = _os.getenv("BIGQUERY_TABLE_ID", "emails_inscritos")
 FULL_TABLE_ID = f"{PROJECT_ID}.{DATASET_ID}.{TABLE_ID}"
 
 
